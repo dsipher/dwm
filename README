@@ -1,0 +1,19 @@
+[patches]
+tilegap, center, fakefullscreen, hide vacant tag, leftlayout, push
+[font]
+ttf-icon-font
+[custum]
+dwm.c
+add barsize var
+- bh = drw->fonts[0]->h + 2;
++ bh = drw->fonts[0]->h + barsize;
+config.h
++ static const unsigned int barsize = 4;
+
+dwm.c
+remove client discription
+@728 void drawbar delete if/else
+	if ((w = m->ww - sw - x) > bh) {
+			drw_setscheme(drw, scheme[SchemeNorm]);
+			drw_rect(drw, x, 0, w, bh, 1, 1);
+	}
